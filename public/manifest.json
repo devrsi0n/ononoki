@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "gif-maker",
+  "version": "0.0.1",
+  "description": "Chrome extension for record gif meme from bilibili",
+  "icons": {
+    "16": "./favicon.ico",
+    "48": "./favicon.ico",
+    "64": "./favicon.ico",
+    "128": "./favicon.ico"
+  },
+  "author": "devrsi0n",
+  "permissions": ["http://localhost:3000/*"],
+  "options_page": "pages/options/index.html",
+  "browser_action": {
+    "default_icon": {
+      "38": "./favicon.ico"
+    },
+    "default_popup": "pages/popup/index.html",
+    "default_title": "GIF maker"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*"],
+      "js": ["vendors/chunk.js", "pages/content/index.js"],
+      "css": ["vendors/chunk.css", "pages/content/index.css"]
+    }
+  ]
+}
