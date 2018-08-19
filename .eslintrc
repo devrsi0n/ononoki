@@ -3,7 +3,13 @@
   "extends": "@devrsi0n/eslint-config-react",
   "rules": {
     "strict": "off",
+    "no-restricted-syntax": "off",
     "react/jsx-wrap-multilines": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "react/prefer-stateless-function": "off",
+    "react/forbid-prop-types": "off",
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
     "import/no-extraneous-dependencies": "off"
   }
 }

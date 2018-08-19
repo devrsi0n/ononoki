@@ -3,25 +3,23 @@
 const { dist } = require('./paths');
 const getBabelOptions = require('./babel');
 const { getEntry, outputNames } = require('./utils');
-const { getImageLoader, getStyleLoaders, getFileLoader } = require('./loaders');
+const {
+  getImageLoader,
+  getStyleLoaders,
+  getFileLoader,
+  rawLoader,
+} = require('./loaders');
 const { getPlugins } = require('./plugins');
 
 module.exports = {
   entry: getEntry(false),
   mode: 'development',
+  devtool: 'eval-source-map',
   output: {
     pathinfo: true,
     ...outputNames,
     publicPath: '/',
   },
-  // optimization: {
-  //   // Automatically split vendor and commons
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     name: 'vendors',
-  //   },
-  //   runtimeChunk: true,
-  // },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
@@ -57,6 +55,7 @@ module.exports = {
             test: /\.(scss|sass)$/,
             use: getStyleLoaders(false, { importLoaders: 2 }, 'sass-loader'),
           },
+          rawLoader,
           getFileLoader(false),
         ],
       },

@@ -4,7 +4,12 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const { dist } = require('./paths');
 const { getEntry, outputNames } = require('./utils');
-const { getImageLoader, getStyleLoaders, getFileLoader } = require('./loaders');
+const {
+  getImageLoader,
+  getStyleLoaders,
+  getFileLoader,
+  rawLoader,
+} = require('./loaders');
 const getBabelOptions = require('./babel');
 const { getPlugins } = require('./plugins');
 
@@ -12,13 +17,13 @@ module.exports = {
   entry: getEntry(true),
   mode: 'production',
   bail: true,
-  devtool: false,
+  devtool: 'eval-source-map',
   output: {
     path: dist,
     ...outputNames,
     publicPath: '/',
     // Access this library by window[package.name]
-    library: 'gif-maker',
+    library: 'meme-maker',
     libraryTarget: 'umd',
   },
   optimization: {
@@ -55,6 +60,7 @@ module.exports = {
             test: /\.(scss|sass)$/,
             use: getStyleLoaders(true, { importLoaders: 2 }, 'sass-loader'),
           },
+          rawLoader,
           getFileLoader(true),
         ],
       },

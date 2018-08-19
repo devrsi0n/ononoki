@@ -67,8 +67,14 @@ const getImageLoader = () => ({
   },
 });
 
+const rawLoader = {
+  test: /gif.worker.js$/,
+  use: 'raw-loader',
+};
+
 module.exports = {
   getStyleLoaders,
   getImageLoader,
   getFileLoader,
+  rawLoader,
 };

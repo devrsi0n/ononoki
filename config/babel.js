@@ -40,9 +40,13 @@ module.exports = function getBabelOptions(isProd) {
       [require.resolve('babel-preset-stage-2')],
     ].filter(Boolean),
     plugins: [
-      // require.resolve('babel-plugin-transform-decorators-legacy'),
-      // require.resolve('babel-plugin-transform-class-properties'),
-      require.resolve('react-hot-loader/babel'),
+      require.resolve('babel-plugin-styled-components'),
+      [
+        require.resolve('react-hot-loader/babel'),
+        {
+          minify: isProd,
+        },
+      ],
     ].filter(Boolean),
   };
 };

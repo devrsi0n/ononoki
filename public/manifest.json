@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "gif-maker",
-  "version": "0.0.1",
-  "description": "Chrome extension for record gif meme from bilibili",
+  "name": "meme-maker",
+  "version": "0.1.0",
+  "description": "表情包生成器",
   "icons": {
     "16": "./favicon.ico",
     "48": "./favicon.ico",
@@ -23,7 +23,7 @@
     {
       "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*"],
       "js": ["vendors/chunk.js", "pages/content/index.js"],
-      "css": ["vendors/chunk.css", "pages/content/index.css"]
+      "css": ["vendors/chunk.css"]
     }
   ]
 }
