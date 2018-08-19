@@ -7,12 +7,18 @@
 
 ## 预览
 
-![preview](./preview.jpg)
+![preview](./preview.png)
 
 ## 安装
 
-下载 [crx 文件](./dist.ctx)，打开 chrome 扩展页面，拖文件进去即可
+### 在线安装
 
-### 参考如下动图
+[Chrome 商店](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
+
+### 离线安装
+
+下载 [crx 文件](./dist.crx)，打开 chrome 扩展页面，把 crx 文件拖进去即可
+
+可参考下面的动图
 
 ![install](./how_to_install_offline_crx.gif)
