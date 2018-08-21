@@ -1,6 +1,7 @@
 'use strict';
 
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const { dist } = require('./paths');
 const { getEntry, outputNames } = require('./utils');
@@ -17,7 +18,7 @@ module.exports = {
   entry: getEntry(true),
   mode: 'production',
   bail: true,
-  devtool: 'eval-source-map',
+  devtool: process.env.DEBUG ? 'eval-source-map' : false,
   output: {
     path: dist,
     ...outputNames,
@@ -66,5 +67,8 @@ module.exports = {
       },
     ],
   },
-  plugins: getPlugins(true),
+  plugins: [
+    ...getPlugins(true),
+    process.env.ANALYZER ? new BundleAnalyzerPlugin() : undefined,
+  ].filter(Boolean),
 };

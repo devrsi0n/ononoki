@@ -5,7 +5,10 @@ import { createStore } from 'redux';
 import Common from '../../components/Common';
 import App from './containers/App';
 import reducers from './reducers';
-import './test.mp4';
+
+if (process.env.NODE_ENV === 'development') {
+  require('./test.mp4');
+}
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
@@ -28,23 +31,36 @@ if (process.env.NODE_ENV === 'development') {
   const anchor = document.getElementById('root');
   render(anchor);
 } else {
-  setTimeout(() => {
-    const anchor = document.createElement('div');
+  const anchor = document.createElement('div');
 
-    let root = document.querySelector(
-      '.bilibili-player-video-control-bottom-right'
-    );
-    if (root) {
-      root.appendChild(anchor);
-      render(anchor, true);
-    } else {
-      root = document.querySelector('.bilibili-player-video-time');
-      if (root) {
-        root.parentNode.insertBefore(anchor, root.nextSibling);
-        render(anchor, false);
-      } else {
-        console.warn('[Meme maker]: Anchor not found');
+  const root = document.querySelector(
+    '.bilibili-player-video-control-bottom-right'
+  );
+  if (root) {
+    root.appendChild(anchor);
+    render(anchor, true);
+  } else {
+    const OLD_VERSION_CLASS = '.bilibili-player-video-time';
+
+    const observer = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        if (!mutation.addedNodes) return;
+
+        const oldRoot = document.querySelector(OLD_VERSION_CLASS);
+        if (oldRoot && document.querySelector('video')) {
+          oldRoot.parentNode.insertBefore(anchor, oldRoot.nextSibling);
+          render(anchor, false);
+          // stop watching
+          observer.disconnect();
+        }
       }
-    }
-  }, 5000);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: false,
+      characterData: false,
+    });
+  }
 }

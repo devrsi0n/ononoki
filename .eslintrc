@@ -3,6 +3,7 @@
   "extends": "@devrsi0n/eslint-config-react",
   "rules": {
     "strict": "off",
+    "global-require": "off",
     "no-restricted-syntax": "off",
     "react/jsx-wrap-multilines": "off",
     "jsx-a11y/media-has-caption": "off",

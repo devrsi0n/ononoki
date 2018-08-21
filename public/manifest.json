@@ -1,29 +1,25 @@
 {
   "manifest_version": 2,
   "name": "meme-maker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "表情包生成器",
   "icons": {
-    "16": "./favicon.ico",
-    "48": "./favicon.ico",
-    "64": "./favicon.ico",
-    "128": "./favicon.ico"
+    "16": "./icons/16.jpg",
+    "48": "./icons/48.jpg",
+    "64": "./icons/64.jpg",
+    "128": "./icons/128.jpg"
   },
   "author": "devrsi0n",
   "permissions": ["http://localhost:3000/*"],
-  "options_page": "pages/options/index.html",
   "browser_action": {
-    "default_icon": {
-      "38": "./favicon.ico"
-    },
-    "default_popup": "pages/popup/index.html",
+    "default_icon": "./icons/192.jpg",
     "default_title": "GIF maker"
   },
   "content_scripts": [
     {
       "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*"],
       "js": ["vendors/chunk.js", "pages/content/index.js"],
-      "css": ["vendors/chunk.css"]
+      "css": ["pages/content/index.css"]
     }
   ]
 }

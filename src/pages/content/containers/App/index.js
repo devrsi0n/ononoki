@@ -26,11 +26,7 @@ class App extends Component {
 
   componentDidMount() {
     const ref = this.getBiliVideoRef();
-    if (this.props.newPage) {
-      ref.addEventListener('loadeddata', this.setVideoInfo, false);
-    } else {
-      this.setVideoInfo();
-    }
+    ref.addEventListener('loadeddata', this.setVideoInfo, false);
   }
 
   onConfirm = async () => {
@@ -46,6 +42,24 @@ class App extends Component {
 
   onClickBtn = event => {
     const { currentTarget } = event;
+
+    if (!this.state.open) {
+      // Pause video before open config panel
+      const ref = this.getBiliVideoRef();
+      if (!ref.paused) {
+        ref.pause();
+      }
+
+      // Set start time to current time
+      const { currentTime } = ref;
+      if (currentTime > 6) {
+        this.props.onConfigChange({
+          start: this.getMinSec(currentTime - 6),
+          end: this.getMinSec(currentTime - 1),
+        });
+      }
+    }
+
     this.setState(state => ({
       btnRef: currentTarget,
       open: !state.open,
@@ -56,17 +70,23 @@ class App extends Component {
     const ref = this.getBiliVideoRef();
     const { duration, videoWidth, videoHeight } = ref;
     this.props.onConfigChange({
-      duration: {
-        min: Math.floor(duration / 60),
-        sec: Math.floor(duration % 60),
-      },
+      duration: this.getMinSec(duration),
       videoWidth,
       videoHeight,
     });
   };
 
   getBiliVideoRef() {
-    return document.querySelectorAll('video')[0];
+    return document.querySelector('video');
+  }
+
+  getMinSec(time) {
+    const min = Math.floor(time / 60);
+    const sec = Math.floor(time % 60);
+    return {
+      min,
+      sec,
+    };
   }
 
   render() {
