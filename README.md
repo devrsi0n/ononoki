@@ -1,5 +1,7 @@
 # meme-maker
 
+![](./public/icons/192.jpg)
+
 [![styled with: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 
@@ -11,7 +13,7 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 
 ## 安装
 
-### 在线安装
+### 在线安装（推荐）
 
 [Chrome 商店](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
 
