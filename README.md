@@ -1,4 +1,4 @@
-# meme-maker
+# Ononoki
 
 ![](./public/icons/192.jpg)
 
@@ -17,9 +17,9 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 
 [Chrome 商店](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
 
-### 离线安装（chrome 68 已失效）
+### 离线安装
 
-下载 [crx 文件](./dist.crx)，打开 chrome 扩展页面，把 crx 文件拖进去即可。
+下载 [crx 文件](./main.crx)，打开 chrome 扩展页面，把 crx 文件拖进去即可。
 
 可参考下面的动图
 

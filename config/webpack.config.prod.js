@@ -24,7 +24,7 @@ module.exports = {
     ...outputNames,
     publicPath: '/',
     // Access this library by window[package.name]
-    library: 'meme-maker',
+    library: 'ononoki',
     libraryTarget: 'umd',
   },
   optimization: {

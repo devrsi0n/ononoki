@@ -9,16 +9,21 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
+import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import TextInput from '../../components/TextInput';
 import TimeSelect from '../../components/TimeSelect';
 import Slider from '../../components/Slider';
 import { setConfigs } from '../../actions';
+import logo from './logo.jpg';
 
 const styles = () => ({
   root: {
     zIndex: 200,
+  },
+  header: {
+    paddingBottom: 0,
   },
   verticalGap: {
     marginLeft: '30px',
@@ -111,7 +116,12 @@ class ConfigPanel extends Component {
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={500}>
             <Card>
-              <CardHeader title="表情包生成器" />
+              <CardHeader
+                className={classes.header}
+                title="Ononoki"
+                titleTypographyProps={{ variant: 'title' }}
+                avatar={<Avatar aria-label="Logo" src={logo} />}
+              />
               <CardContent>
                 <FormControl>
                   <FormGroup row>
