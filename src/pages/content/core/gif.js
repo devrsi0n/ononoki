@@ -16,7 +16,7 @@ export default class Gif extends EventEmitter {
    *
    * @param {object} configs
    * @param {number} configs.start record start time, millisecond
-   * @param {HTMLElement} video html5 video element
+   * @param {HTMLVideoElement} video html5 video element
    */
   constructor(
     {
@@ -66,11 +66,7 @@ export default class Gif extends EventEmitter {
     this.canvasCtx = this.canvas.getContext('2d');
 
     this.gif.on('finished', blob => {
-      // const img = document.createElement('img');
       const obj = window.URL.createObjectURL(blob);
-      // img.src = obj;
-      // document.body.appendChild(img);
-      // window.open(obj);
       this.emit(RECORD_FINISHED, obj);
     });
   }

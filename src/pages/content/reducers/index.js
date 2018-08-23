@@ -57,11 +57,11 @@ function keepWidthHeightRate(state, newWidth) {
   }
   if (newWidth) {
     return {
-      height: width * (videoHeight / videoWidth),
+      height: Math.round(width * (videoHeight / videoWidth)),
     };
   }
   return {
-    width: height * (videoWidth / videoHeight),
+    width: Math.round(height * (videoWidth / videoHeight)),
   };
 }
 
