@@ -17,15 +17,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "debug": "DEBUG=true node scripts/build.js",
-    "analyzer": "ANALYZER=true node scripts/build.js",
+    "debug": "cross-env DEBUG=true node scripts/build.js",
+    "analyzer": "cross-env ANALYZER=true node scripts/build.js",
     "lint": "eslint --fix src/",
     "commitmsg": "commitlint -E GIT_PARAMS"
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
@@ -45,6 +40,7 @@
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
     "css-loader": "1.0.0",
     "eslint": "^4.19.0",
     "eslint-loader": "2.1.0",

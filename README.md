@@ -2,14 +2,17 @@
 
 ![](./public/icons/192.jpg)
 
-[![styled with: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-
 GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 
-## 预览
+## 功能预览
 
-![preview](./preview.png)
+### 配置面板
+
+![preview1](./preview1.png)
+
+### 预览 GIF
+
+![preview2](./preview2.png)
 
 ## 安装
 
@@ -27,7 +30,7 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 
 ## TODO
 
-- 生成的 GIF 实时预览
+- ~~生成的 GIF 实时预览~~
 - 修复全屏配置面板未显示的问题
 - 增加百毫秒时间定位输入栏
   - 考虑增加百毫秒级前进后退定位控制按钮
