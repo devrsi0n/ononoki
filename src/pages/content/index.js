@@ -6,10 +6,6 @@ import Common from '../../components/Common';
 import App from './containers/App';
 import reducers from './reducers';
 
-if (process.env.NODE_ENV === 'development') {
-  require('./test.mp4');
-}
-
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducers,

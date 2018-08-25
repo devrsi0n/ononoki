@@ -91,8 +91,8 @@ const configs = (state = initState, action) => {
 
       if (keys.includes('videoWidth') || keys.includes('videoHeight')) {
         mergeDeep(result, {
-          width: data.videoWidth / 3,
-          height: data.videoHeight / 3,
+          width: Math.round(data.videoWidth / 3),
+          height: Math.round(data.videoHeight / 3),
         });
       }
       return result;

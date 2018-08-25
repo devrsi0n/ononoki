@@ -99,7 +99,7 @@ export default class Gif extends EventEmitter {
 
   /**
    * Seek through <video> frames
-   * @param {number} time seconds
+   * @param {number} time milliseconds
    */
   seekTo(time) {
     return new Promise(resolve => {
