@@ -32,7 +32,7 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 
 ![install](./how_to_install_offline_crx.gif)
 
->> 较新的 Chrome 不能直接导入 crx，请参考 [开发者模式导入解压文件](https://jingyan.baidu.com/article/f71d6037c581c91ab641d120.html)
+> 较新的 Chrome 不能直接导入 crx，请参考 [开发者模式导入解压文件](https://jingyan.baidu.com/article/f71d6037c581c91ab641d120.html)
 
 ## 计划表
 
@@ -48,6 +48,7 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
   - 文字默认只有用户已安装的字体，后续可以考虑第三方字体
   - 二期支持动态文字
 - 视频原始帧截图
+- 截图视频
 - 修复全屏配置面板未显示的问题
 
 ## 贡献者
