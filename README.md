@@ -2,7 +2,7 @@
 
 ![](./public/icons/192.jpg)
 
-GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
+GIF 表情包生成器 chrome 扩展，支持 Bilibili。
 
 ## 功能预览
 
@@ -40,9 +40,10 @@ GIF 表情包生成器 chrome 扩展，目前支持 Bilibili。
 - 增加百毫秒时间定位输入栏
   - 考虑增加百毫秒级前进后退定位控制按钮
 - 支持速率调节（多倍快速、慢速）
-- 支持 [爱奇艺](http://www.iqiyi.com)
-- 支持 Twitter
-- 支持 Youtube
+- 适配爱奇艺
+- 适配微博
+- 适配 Twitter
+- 适配 Youtube
 - 支持添加文字到 GIF 中
   - 初期只支持固定文字
   - 文字默认只有用户已安装的字体，后续可以考虑第三方字体
