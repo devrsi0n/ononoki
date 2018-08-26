@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import ConfigPanel from '../ConfigPanel';
 import Previewer from '../../components/Previewer';
 import GIF from '../../core/gif';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const Video = null;
 // let Video = null;
-// const isProd = process.env.NODE_ENV === 'production';
 // if (!isProd) {
 //   Video = require('../../components/Video').default;
 // }
 
-const StyledPanel = styled(ConfigPanel)`
-  margin: 20px auto;
-`;
-
 export default class App extends Component {
   static propTypes = {
-    newPage: PropTypes.bool.isRequired,
+    btnStyle: PropTypes.object.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     onConfigChange: PropTypes.func.isRequired,
@@ -88,12 +84,17 @@ export default class App extends Component {
 
   setVideoInfo = () => {
     const ref = this.getVideoRef();
-    const { duration, videoWidth, videoHeight } = ref;
-    this.props.onConfigChange({
-      duration: this.getMinSec(duration),
-      videoWidth,
-      videoHeight,
-    });
+    ref.currentTime = 24 * 60 * 60;
+    const doneSeeking = () => {
+      ref.removeEventListener('seeked', doneSeeking);
+      const { duration, videoWidth, videoHeight } = ref;
+      this.props.onConfigChange({
+        duration: this.getMinSec(duration),
+        videoWidth,
+        videoHeight,
+      });
+    };
+    ref.addEventListener('seeked', doneSeeking);
   };
 
   getVideoRef() {
@@ -110,7 +111,7 @@ export default class App extends Component {
   render() {
     const { onClickBtn, onConfirm, onClosePreviewer, onTimeUpdate } = this;
     const { openConfigPanel, openPreviewer, btnRef, image } = this.state;
-    const { newPage, width, height } = this.props;
+    const { btnStyle, width, height } = this.props;
 
     return (
       <div
@@ -128,19 +129,14 @@ export default class App extends Component {
           height={height}
           onClose={onClosePreviewer}
         />
-        <StyledPanel
+        <ConfigPanel
           open={openConfigPanel}
           onConfirm={onConfirm}
           anchorEl={btnRef}
           onTimeUpdate={onTimeUpdate}
+          style={{ margin: '20px auto' }}
         />
-        <Button
-          onClick={onClickBtn}
-          style={{
-            color: newPage ? 'hsla(0,0%,100%,.9)' : '#99a2aa',
-            marginTop: newPage ? '-7px' : '-4px',
-          }}
-        >
+        <Button onClick={onClickBtn} style={isProd && btnStyle}>
           Ononoki
         </Button>
       </div>

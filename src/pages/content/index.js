@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import Common from '../../components/Common';
 import App from './containers/App';
 import reducers from './reducers';
+import clients from './clients';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
@@ -12,11 +13,11 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-function render(anchor, newPage = false) {
+function render(anchor, btnStyle = {}) {
   ReactDOM.render(
     <Provider store={store}>
       <Common>
-        <App newPage={newPage} />
+        <App btnStyle={btnStyle} />
       </Common>
     </Provider>,
     anchor
@@ -27,36 +28,7 @@ if (process.env.NODE_ENV === 'development') {
   const anchor = document.getElementById('root');
   render(anchor);
 } else {
-  const anchor = document.createElement('div');
-
-  const root = document.querySelector(
-    '.bilibili-player-video-control-bottom-right'
-  );
-  if (root) {
-    root.appendChild(anchor);
-    render(anchor, true);
-  } else {
-    const OLD_VERSION_CLASS = '.bilibili-player-video-time';
-
-    const observer = new MutationObserver(mutations => {
-      for (const mutation of mutations) {
-        if (!mutation.addedNodes) return;
-
-        const oldRoot = document.querySelector(OLD_VERSION_CLASS);
-        if (oldRoot && document.querySelector('video')) {
-          oldRoot.parentNode.insertBefore(anchor, oldRoot.nextSibling);
-          render(anchor, false);
-          // stop watching
-          observer.disconnect();
-        }
-      }
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: false,
-      characterData: false,
-    });
+  for (const client of clients) {
+    client(render);
   }
 }

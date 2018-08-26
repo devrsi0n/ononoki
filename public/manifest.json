@@ -17,7 +17,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*"],
+      "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*", "http://*.iqiyi.com/*", "https://*.iqiyi.com/*"],
       "js": ["vendors/chunk.js", "pages/content/index.js"],
       "css": ["pages/content/index.css"]
     }
