@@ -15,6 +15,8 @@ delete config.devServer;
 const { port, host } = devServerOptions;
 const url = `http://${host}:${port}/pages/content`;
 
+WebpackDevServer.addDevServerEntrypoints(config, devServerOptions);
+
 let isFirst = true;
 const compiler = webpack(config);
 compiler.plugin('done', stats => {

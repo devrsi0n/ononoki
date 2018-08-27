@@ -2,6 +2,7 @@
 
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const webpack = require('webpack');
 
 const { dist } = require('./paths');
 const { getEntry, outputNames } = require('./utils');
@@ -70,5 +71,9 @@ module.exports = {
   plugins: [
     ...getPlugins(true),
     process.env.ANALYZER ? new BundleAnalyzerPlugin() : undefined,
+    new webpack.NormalModuleReplacementPlugin(
+      /\/Video/,
+      require.resolve('./empty.js')
+    ),
   ].filter(Boolean),
 };

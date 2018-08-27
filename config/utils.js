@@ -36,26 +36,17 @@ const getEntry = isProd => {
   const entry = getValidEntry(isProd);
   const str = JSON.stringify(entry);
 
-  if (isProd) {
-    if (!validObject(entry)) {
-      throw new Error(
-        `Expect src/index.js or src/pages/<subDir> as entry, get: ${str}`
-      );
-    }
-    return entry;
-  }
-
   if (!validObject(entry)) {
     throw new Error(
       `Expect src/index.js or src/pages/<subDir> as entry, get: ${str}`
     );
   }
+  if (isProd) {
+    return entry;
+  }
+
   return {
     ...entry,
-    client: `${require.resolve(
-      'webpack-dev-server/client'
-    )}?http://0.0.0.0:3030`,
-    hotServer: require.resolve('webpack/hot/only-dev-server'),
   };
 };
 

@@ -7,11 +7,11 @@ import GIF from '../../core/gif';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const Video = null;
-// let Video = null;
-// if (!isProd) {
-//   Video = require('../../components/Video').default;
-// }
+// const Video = null;
+let Video = null;
+if (!isProd) {
+  Video = require('../../components/Video').default;
+}
 
 export default class App extends Component {
   static propTypes = {
@@ -134,9 +134,11 @@ export default class App extends Component {
           onConfirm={onConfirm}
           anchorEl={btnRef}
           onTimeUpdate={onTimeUpdate}
-          style={{ margin: '20px auto' }}
         />
-        <Button onClick={onClickBtn} style={isProd && btnStyle}>
+        <Button
+          onClick={onClickBtn}
+          style={isProd ? btnStyle : { marginTop: '300px' }}
+        >
           Ononoki
         </Button>
       </div>

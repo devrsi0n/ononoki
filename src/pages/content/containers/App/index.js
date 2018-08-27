@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { hot } from 'react-hot-loader';
 import App from './App';
 import { setConfigs } from '../../actions';
 
@@ -15,7 +16,9 @@ const mapDispatchToProps = {
   onConfigChange: setConfigs,
 };
 
-export default connect(
+const ReduxApp = connect(
   mapStateToProps,
   mapDispatchToProps
 )(App);
+
+export default hot(module)(ReduxApp);

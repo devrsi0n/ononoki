@@ -21,7 +21,7 @@ const getHTMLPlugins = () => {
           template: join(dir, 'index.html'),
           filename: `pages/${name}/index.html`,
           inject: true,
-          chunks: ['client', 'hotServer', name, 'vendors'],
+          chunks: [name, 'vendors'],
         })
     );
   }
@@ -29,14 +29,7 @@ const getHTMLPlugins = () => {
 };
 
 function getPlugins(isProd) {
-  const plugins = [
-    ...getHTMLPlugins(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(isProd ? 'production' : 'development'),
-      },
-    }),
-  ];
+  const plugins = [...getHTMLPlugins()];
 
   if (!isProd) {
     plugins.push(

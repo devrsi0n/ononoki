@@ -5,6 +5,7 @@
     "strict": "off",
     "global-require": "off",
     "no-restricted-syntax": "off",
+    "no-return-assign": "off",
     "react/jsx-wrap-multilines": "off",
     "jsx-a11y/media-has-caption": "off",
     "react/prefer-stateless-function": "off",
