@@ -116,6 +116,7 @@ export default class App extends Component {
     return (
       <div
         style={{
+          fontSize: '16px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
