@@ -39,6 +39,7 @@ class Previewer extends Component {
     link.target = '_blank';
     link.href = this.props.image;
     link.click();
+    this.props.onClose();
   };
 
   link = document.createElement('a');

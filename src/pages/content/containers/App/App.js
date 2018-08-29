@@ -84,17 +84,12 @@ export default class App extends Component {
 
   setVideoInfo = () => {
     const ref = this.getVideoRef();
-    ref.currentTime = 24 * 60 * 60;
-    const doneSeeking = () => {
-      ref.removeEventListener('seeked', doneSeeking);
-      const { duration, videoWidth, videoHeight } = ref;
-      this.props.onConfigChange({
-        duration: this.getMinSec(duration),
-        videoWidth,
-        videoHeight,
-      });
-    };
-    ref.addEventListener('seeked', doneSeeking);
+    const { duration, videoWidth, videoHeight } = ref;
+    this.props.onConfigChange({
+      duration: this.getMinSec(duration),
+      videoWidth,
+      videoHeight,
+    });
   };
 
   getVideoRef() {
