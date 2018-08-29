@@ -3,7 +3,8 @@ const getStyle = newPage => ({
   marginTop: newPage ? '-7px' : '-4px',
 });
 
-export default function Bilibili(render) {
+// TODO: Watch page part refresh
+export default function bilibili(render) {
   if (!window.location.origin.includes('bilibili')) {
     return;
   }

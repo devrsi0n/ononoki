@@ -4,7 +4,7 @@ const { join } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MinifyPlugin = require('babel-minify-webpack-plugin');
 
@@ -45,7 +45,7 @@ function getPlugins(isProd) {
       new MinifyPlugin(),
       new CopyWebpackPlugin([{ from: publicDir, to: dist }]),
       new MiniCssExtractPlugin(cssNames),
-      new CleanWebpackPlugin(dist, { root: process.cwd() }),
+      // new CleanWebpackPlugin(dist, { root: process.cwd() }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production'),

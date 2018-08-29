@@ -18,6 +18,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "debug": "cross-env DEBUG=true node scripts/build.js",
+    "watch": "webpack --cache --watch --progress --config config/webpack.config.prod.js",
     "analyzer": "cross-env ANALYZER=true node scripts/build.js",
     "lint": "eslint --fix src/",
     "commitmsg": "commitlint -E GIT_PARAMS"
@@ -63,6 +64,7 @@
     "url-loader": "1.1.1",
     "webpack": "^4.17.1",
     "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-command": "^0.4.1",
     "webpack-dev-server": "^3.1.7"
   },
   "husky": {
