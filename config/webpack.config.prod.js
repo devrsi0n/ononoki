@@ -14,7 +14,6 @@ const {
 } = require('./loaders');
 const getBabelOptions = require('./babel');
 const { getPlugins } = require('./plugins');
-const SizePlugin = require('size-plugin');
 
 module.exports = {
   entry: getEntry(true),
@@ -36,7 +35,6 @@ module.exports = {
       chunks: 'all',
       name: 'vendors',
     },
-    // runtimeChunk: true,
   },
   module: {
     rules: [
@@ -76,6 +74,5 @@ module.exports = {
       /\/Video/,
       require.resolve('./empty.js')
     ),
-    new SizePlugin(),
   ].filter(Boolean),
 };
