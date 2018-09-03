@@ -25,9 +25,10 @@ export default function bilibili(render) {
         if (!mutation.addedNodes) return;
 
         const oldRoot = document.querySelector(OLD_VERSION_CLASS);
-        if (oldRoot && document.querySelector('video')) {
+        const video = document.querySelector('video');
+        if (oldRoot && video) {
           oldRoot.parentNode.insertBefore(anchor, oldRoot.nextSibling);
-          render(anchor, getStyle(false));
+          render(anchor, getStyle(false), video);
           // stop watching
           observer.disconnect();
         }

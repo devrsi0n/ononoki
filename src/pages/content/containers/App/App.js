@@ -16,6 +16,7 @@ if (!isProd) {
 export default class App extends Component {
   static propTypes = {
     btnStyle: PropTypes.object.isRequired,
+    video: PropTypes.node.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     onConfigChange: PropTypes.func.isRequired,
@@ -29,13 +30,11 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const ref = this.getVideoRef();
-    ref.addEventListener('loadeddata', this.setVideoInfo, false);
+    this.props.video.addEventListener('loadeddata', this.setVideoInfo, false);
   }
 
   onConfirm = async () => {
-    const ref = this.getVideoRef();
-    this.gif = new GIF(this.props, ref);
+    this.gif = new GIF(this.props, this.props.video);
     this.setState({
       openPreviewer: true,
     });
@@ -50,7 +49,7 @@ export default class App extends Component {
 
     if (!this.state.openConfigPanel) {
       // Pause video before open config panel
-      const ref = this.getVideoRef();
+      const ref = this.props.video;
       if (!ref.paused) {
         ref.pause();
       }
@@ -72,6 +71,7 @@ export default class App extends Component {
   };
 
   onClosePreviewer = () => {
+    this.gif.abort();
     this.setState({
       openPreviewer: false,
       image: null,
@@ -79,22 +79,22 @@ export default class App extends Component {
   };
 
   onTimeUpdate = ({ min, sec }) => {
-    this.getVideoRef().currentTime = min * 60 + sec;
+    this.props.video.currentTime = min * 60 + sec;
   };
 
   setVideoInfo = () => {
-    const ref = this.getVideoRef();
-    const { duration, videoWidth, videoHeight } = ref;
+    const { duration, videoWidth, videoHeight } = this.props.video;
+    let trueDuration = duration;
+    if (!Number.isFinite(duration)) {
+      /* eslint-disable prefer-destructuring */
+      trueDuration = this.props.video.trueDuration;
+    }
     this.props.onConfigChange({
-      duration: this.getMinSec(duration),
+      duration: this.getMinSec(trueDuration),
       videoWidth,
       videoHeight,
     });
   };
-
-  getVideoRef() {
-    return document.querySelector('video');
-  }
 
   getMinSec(time) {
     return {

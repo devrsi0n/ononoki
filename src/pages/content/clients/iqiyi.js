@@ -3,15 +3,31 @@ export default function iqiyi(render) {
     return;
   }
 
-  const anchor = document.createElement('li');
+  const anchor = document.createElement('div');
 
-  const root = document.querySelector('ul.control-right');
+  const root = document.querySelector('div.danmu-main');
   if (root) {
     root.appendChild(anchor);
-    render(anchor, {
-      color: '#aaa',
-      marginTop: '2px',
-      marginRight: '20px',
-    });
+    const video = document.querySelector('video');
+    const id = setInterval(() => {
+      let text = document.querySelector('span.time-all').textContent;
+      if (text.length) {
+        clearInterval(id);
+      }
+      text = text.slice(1, text.length);
+      const [min, sec] = text.split(':');
+      const duration = Number(min) * 60 + Number(sec);
+      video.trueDuration = duration;
+
+      render(
+        anchor,
+        {
+          color: '#aaa',
+          marginTop: '-10px',
+          marginLeft: '108px',
+        },
+        video
+      );
+    }, 1000);
   }
 }

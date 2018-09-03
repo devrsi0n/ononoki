@@ -1,6 +1,9 @@
 {
   "root": true,
   "extends": "@devrsi0n/eslint-config-react",
+  "globals": {
+    "chrome": true
+  },
   "rules": {
     "linebreak-style": "off",
     "strict": "off",

@@ -19,12 +19,6 @@ module.exports = {
   entry: getEntry(true),
   mode: 'production',
   bail: true,
-  devtool: process.env.DEBUG ? 'eval-source-map' : false,
-  watch: true,
-  watchOptions: {
-    // aggregateTimeout: 600,
-    ignored: /node_modules/,
-  },
   output: {
     path: dist,
     ...outputNames,

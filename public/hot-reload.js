@@ -8,7 +8,7 @@ const filesInDirectory = dir =>
             e =>
               e.isDirectory
                 ? filesInDirectory(e)
-                : new Promise(resolve => e.file(resolve))
+                : new Promise(resolve2 => e.file(resolve2))
           )
       )
         .then(files => [].concat(...files))

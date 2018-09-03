@@ -51,8 +51,7 @@ export default class Gif extends EventEmitter {
       width,
       height,
       repeat,
-      // Logical processor size
-      workers: window.navigator.hardwareConcurrency,
+      workers: 2,
       workerScript: URL.createObjectURL(workerBlob),
       debug: true,
     });

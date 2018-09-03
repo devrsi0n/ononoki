@@ -17,8 +17,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "debug": "cross-env DEBUG=true node scripts/build.js",
-    "watch": "webpack --cache --watch --progress --config config/webpack.config.prod.js",
+    "watch": "webpack --watch --cache --progress --devtool eval-source-map --config config/webpack.config.prod.js",
     "analyzer": "cross-env ANALYZER=true node scripts/build.js",
     "lint": "eslint --fix src/",
     "commitmsg": "commitlint -E GIT_PARAMS"
