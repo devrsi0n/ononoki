@@ -16,10 +16,14 @@ if (!isProd) {
 export default class App extends Component {
   static propTypes = {
     btnStyle: PropTypes.object.isRequired,
-    video: PropTypes.node.isRequired,
+    video: PropTypes.node,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     onConfigChange: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    video: document.querySelector('video'),
   };
 
   state = {
