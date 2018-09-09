@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Ononoki",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Record GIF meme",
   "icons": {
     "16": "./icons/16.jpg",
@@ -11,9 +11,7 @@
   },
   "author": "devrsi0n",
   "background": {
-    "scripts": [
-      "hot-reload.js"
-    ]
+    "scripts": ["hot-reload.js"]
   },
   "permissions": ["http://localhost:3030/*"],
   "browser_action": {
@@ -22,9 +20,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*.bilibili.com/*", "https://*.bilibili.com/*", "http://*.iqiyi.com/*", "https://*.iqiyi.com/*", "http://*.dilidili.wang/*"],
+      "matches": [
+        "*://*.bilibili.com/*",
+        "*://*.iqiyi.com/*",
+        "*://*.dilidili.wang/*"
+      ],
       "js": ["vendors/chunk.js", "pages/content/index.js"],
-      "css": ["pages/content/index.css"]
+      "css": ["pages/content/index.css"],
+      "run_at": "document_idle"
     }
-  ]
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'; child-src blob:"
 }

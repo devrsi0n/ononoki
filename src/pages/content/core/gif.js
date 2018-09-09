@@ -57,12 +57,20 @@ export default class Gif extends EventEmitter {
     });
 
     this.video = video;
+    this.aborted = false;
 
+    this.videoWidth = video.getBoundingClientRect().width;
+    this.videoHeight = video.getBoundingClientRect().height;
     this.canvas = document.createElement('canvas');
-    this.canvas.setAttribute('width', width);
-    this.canvas.setAttribute('height', height);
+    this.canvas.setAttribute('width', this.videoWidth);
+    this.canvas.setAttribute('height', this.videoHeight);
+    this.canvas.style.width = `${width}px`;
     this.canvas.style.imageRendering = 'crisp-edges';
     this.canvasCtx = this.canvas.getContext('2d');
+    this.resizedCanvas = document.createElement('canvas');
+    this.resizedCanvasCtx = this.resizedCanvas.getContext('2d');
+    this.resizedCanvas.setAttribute('width', width);
+    this.resizedCanvas.setAttribute('height', height);
 
     this.gif.on('finished', blob => {
       const obj = window.URL.createObjectURL(blob);
@@ -71,7 +79,7 @@ export default class Gif extends EventEmitter {
   }
 
   async record() {
-    await this.seekTo(this.start + 1);
+    await this.seekTo(this.start);
     const getCurrTime = () => this.video.currentTime * 1000;
     while (getCurrTime() < this.end) {
       this.addFrame();
@@ -88,8 +96,13 @@ export default class Gif extends EventEmitter {
   }
 
   addFrame() {
-    this.canvasCtx.drawImage(this.video, 0, 0, this.width, this.height);
-    this.gif.addFrame(this.canvas, {
+    if (this.aborted) return;
+
+    const { video, canvas, resizedCanvasCtx } = this;
+
+    this.canvasCtx.drawImage(video, 0, 0, this.videoWidth, this.videoHeight);
+    resizedCanvasCtx.drawImage(canvas, 0, 0, this.width, this.height);
+    this.gif.addFrame(resizedCanvasCtx, {
       delay: this.frameInterval,
       dispose: 1,
       copy: true,
@@ -113,6 +126,8 @@ export default class Gif extends EventEmitter {
 
   abort() {
     if (!this.gif) return;
+
+    this.aborted = true;
     this.gif.abort();
     this.gif = null;
   }
