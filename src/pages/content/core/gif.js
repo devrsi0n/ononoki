@@ -40,8 +40,8 @@ export default class Gif extends EventEmitter {
     this.height = height;
     this.frameRate = frameRate;
     this.frameInterval = 1000 / this.frameRate;
-    this.start = (start.min * 60 + start.sec) * 1000;
-    this.end = (end.min * 60 + end.sec) * 1000;
+    this.start = (start.min * 60 + start.sec) * 1000 + start.ms;
+    this.end = (end.min * 60 + end.sec) * 1000 + end.ms;
     this.quality = 31 - quality * 3;
     const duration = end - start;
     // True duration

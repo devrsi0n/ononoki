@@ -13,7 +13,7 @@ const devServerOptions = config.devServer;
 delete config.devServer;
 
 const { port, host } = devServerOptions;
-const url = `http://${host}:${port}/pages/content`;
+const url = `http://$localhost:${port}/pages/content`;
 
 WebpackDevServer.addDevServerEntrypoints(config, devServerOptions);
 

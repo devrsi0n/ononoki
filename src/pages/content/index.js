@@ -13,7 +13,11 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-function render(anchor, btnStyle = {}, video) {
+function render(
+  anchor,
+  btnStyle = {},
+  video = document.querySelector('video')
+) {
   ReactDOM.render(
     <Provider store={store}>
       <Common>

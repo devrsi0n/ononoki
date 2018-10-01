@@ -1,6 +1,6 @@
 'use strict';
 
-const { dist } = require('./paths');
+const { dist, cwd } = require('./paths');
 const getBabelOptions = require('./babel');
 const { getEntry, outputNames } = require('./utils');
 const {
@@ -63,7 +63,7 @@ module.exports = {
   },
   plugins: getPlugins(false),
   devServer: {
-    contentBase: dist,
+    contentBase: [dist, cwd],
     host: '0.0.0.0',
     port: 3030,
     compress: true,

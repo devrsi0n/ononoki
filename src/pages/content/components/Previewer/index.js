@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -18,7 +18,7 @@ const style = {
 
 const IMG_MAX_WIDTH = 500;
 
-class Previewer extends Component {
+class Previewer extends PureComponent {
   static propTypes = {
     open: PropTypes.bool.isRequired,
     image: PropTypes.string,
@@ -33,6 +33,8 @@ class Previewer extends Component {
     image: null,
   };
 
+  link = document.createElement('a');
+
   onClickSave = () => {
     const { link } = this;
     link.download = `${document.title.slice(0, 15)}.gif`;
@@ -41,8 +43,6 @@ class Previewer extends Component {
     link.click();
     this.props.onClose();
   };
-
-  link = document.createElement('a');
 
   render() {
     const { open, image, classes, onClose } = this.props;

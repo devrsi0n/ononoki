@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -17,14 +17,23 @@ const styles = {
   },
 };
 
-class TimeSelect extends Component {
+class TimeSelect extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    options: PropTypes.object.isRequired,
-    value: PropTypes.object.isRequired,
+    options: PropTypes.shape({
+      min: PropTypes.array,
+      sec: PropTypes.array,
+      ms: PropTypes.array,
+    }).isRequired,
+    value: PropTypes.shape({
+      min: PropTypes.number,
+      sec: PropTypes.number,
+      ms: PropTypes.number,
+    }).isRequired,
 
     onMinChange: PropTypes.func.isRequired,
     onSecChange: PropTypes.func.isRequired,
+    onMsChange: PropTypes.func.isRequired,
 
     classes: PropTypes.object.isRequired,
     className: PropTypes.string,
@@ -43,6 +52,7 @@ class TimeSelect extends Component {
       value,
       onMinChange,
       onSecChange,
+      onMsChange,
       classes,
       className,
     } = this.props;
@@ -59,15 +69,19 @@ class TimeSelect extends Component {
             options={options.min.map(this.makeSelectOptions)}
             onChange={onMinChange}
           />
-          {/* <Typography variant="body2" gutterBottom>
-            :
-          </Typography> */}
           <Select
             className={classes.second}
             label="秒"
             value={value.sec}
             options={options.sec.map(this.makeSelectOptions)}
             onChange={onSecChange}
+          />
+          <Select
+            className={classes.second}
+            label="毫秒"
+            value={value.ms}
+            options={options.ms.map(this.makeSelectOptions)}
+            onChange={onMsChange}
           />
         </FormGroup>
       </FormControl>

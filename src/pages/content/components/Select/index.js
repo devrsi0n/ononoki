@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -6,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 // import Input from '@material-ui/core/Input';
 
-export default class SelectWithError extends Component {
+export default class SelectWithError extends PureComponent {
   static propTypes = {
     className: PropTypes.string,
     label: PropTypes.string.isRequired,

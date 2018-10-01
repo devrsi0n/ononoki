@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Slider from '@material-ui/lab/Slider';
 import FormControl from '@material-ui/core/FormControl';
@@ -12,7 +12,7 @@ const styles = {
   },
 };
 
-class LabelSlider extends Component {
+class LabelSlider extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,

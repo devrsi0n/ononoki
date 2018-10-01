@@ -2,7 +2,7 @@
 
 const { resolve } = require('path');
 
-const cwd = process.cwd();
+const cwd = resolve(__dirname, '..');
 const src = resolve(cwd, 'src');
 const publish = resolve(cwd, 'demo');
 const getIndex = isProd =>
@@ -27,4 +27,5 @@ module.exports = {
   dump,
   publicDir,
   packageJSON,
+  cwd,
 };

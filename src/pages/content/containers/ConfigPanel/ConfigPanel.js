@@ -31,7 +31,7 @@ const styles = () => ({
     marginTop: '20px',
   },
   common: {
-    width: '101px',
+    width: '155px',
   },
   alignCenter: {
     display: 'flex',
@@ -105,8 +105,8 @@ class ConfigPanel extends Component {
       onConfirm,
     } = this.props;
 
-    const startTime = start.min * 60 + start.sec;
-    const endTime = end.min * 60 + end.sec;
+    const startTime = start.min * 60 + start.sec + start.ms / 1000;
+    const endTime = end.min * 60 + end.sec + end.ms / 1000;
     const disableConfirmBtn = startTime >= endTime;
 
     return (
@@ -134,6 +134,7 @@ class ConfigPanel extends Component {
                       options={startOptions}
                       onMinChange={this.onTimeChange('start', 'min')}
                       onSecChange={this.onTimeChange('start', 'sec')}
+                      onMsChange={this.onTimeChange('start', 'ms')}
                     />
 
                     <TimeSelect
@@ -143,6 +144,7 @@ class ConfigPanel extends Component {
                       options={endOptions}
                       onMinChange={this.onTimeChange('end', 'min')}
                       onSecChange={this.onTimeChange('end', 'sec')}
+                      onMsChange={this.onTimeChange('end', 'ms')}
                     />
                   </FormGroup>
                   <FormGroup row className={classes.rowGap}>

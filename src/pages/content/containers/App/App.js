@@ -7,23 +7,13 @@ import GIF from '../../core/gif';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-// const Video = null;
-let Video = null;
-if (!isProd) {
-  Video = require('../../components/Video').default;
-}
-
 export default class App extends Component {
   static propTypes = {
     btnStyle: PropTypes.object.isRequired,
-    video: PropTypes.node,
+    video: PropTypes.instanceOf(Element).isRequired, // DOM node
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     onConfigChange: PropTypes.func.isRequired,
-  };
-
-  static defaultProps = {
-    video: document.querySelector('video'),
   };
 
   state = {
@@ -101,9 +91,11 @@ export default class App extends Component {
   };
 
   getMinSec(time) {
+    const ms = Math.floor((time % 1) * 1000);
     return {
       min: Math.floor(time / 60),
       sec: Math.floor(time % 60),
+      ms,
     };
   }
 
@@ -121,7 +113,6 @@ export default class App extends Component {
           alignItems: 'center',
         }}
       >
-        {Video && <Video />}
         <Previewer
           open={openPreviewer}
           image={image}

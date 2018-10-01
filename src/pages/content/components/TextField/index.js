@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = {};
 
-class TextField extends Component {
+class TextField extends PureComponent {
   static propTypes = {
     // classes: PropTypes.objectOf(styles).isRequired,
     value: PropTypes.string.isRequired,
