@@ -4,7 +4,7 @@
 
 ![logo](./public/icons/192.jpg)
 
-GIF 表情包生成器 chrome 扩展，支持 Bilibili。
+GIF 表情包生成器 chrome 扩展，支持 Bilibili 和 Youtube。
 
 ## 功能预览
 

@@ -2,7 +2,7 @@
 
 ![logo](./public/icons/192.jpg)
 
-Chrome extension for generating GIF meme from a video, support for Bilibili.
+Chrome extension for generating GIF meme from a video, support for Bilibili and Youtube.
 
 ## Feature Preview
 
@@ -23,8 +23,6 @@ Chrome extension for generating GIF meme from a video, support for Bilibili.
 - Preview GIF generated in real time
 
 ### Online installation (recommended)
-
-[link-cws]: https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf "Version published on Chrome Web Store"
 
 [Chrome store](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
 
