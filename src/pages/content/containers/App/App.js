@@ -89,14 +89,15 @@ export default class App extends Component {
       trueDuration = this.props.video.trueDuration;
     }
     this.props.onConfigChange({
-      duration: this.getMinSec(trueDuration),
+      duration: this.getMinSec(trueDuration, true),
       videoWidth,
       videoHeight,
     });
   };
 
-  getMinSec(time) {
-    const ms = Math.floor((time % 1) * 1000);
+  getMinSec(time, isDuration = false) {
+    let ms = 0;
+    if (isDuration) ms = Math.floor((time % 1) * 1000);
     return {
       min: Math.floor(time / 60),
       sec: Math.floor(time % 60),

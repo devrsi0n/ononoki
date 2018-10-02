@@ -14,11 +14,17 @@ Chrome extension for generating GIF meme from a video, support for Bilibili.
 
 ![preview2](./preview2.png)
 
+### Full demo
+
+![preview](./preview.gif)
+
 - Multi-threaded concurrent encoding GIF based on [Web Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers)
 - Fine control of duration, width, frame rate, and quality
 - Preview GIF generated in real time
 
 ### Online installation (recommended)
+
+[link-cws]: https://chrome.google.com/webstore/detail/refined-github/hlepfoohegkhhmjieoechaddaejaokhf "Version published on Chrome Web Store"
 
 [Chrome store](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
 
@@ -41,7 +47,7 @@ Can refer to the following animation
 - Adapt to iQiyi
 - Adapt to Weibo
 - Adapt to Twitter
-- Adapt to Youtube
+- ~~Adapt to Youtube~~
 - Support for adding text to GIF
   - Initially, only fixed text is supported
   - The text defaults only to the fonts that the user has installed and subsequent third-party fonts can be considered.

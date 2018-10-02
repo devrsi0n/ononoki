@@ -12,9 +12,15 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili。
 
 ![preview1](./preview1.png)
 
-### 预览 GIF
+### 预览生成的 GIF
 
 ![preview2](./preview2.png)
+
+### 完整演示
+
+![preview](./preview.gif)
+
+> [原始视频](https://www.bilibili.com/video/av2863022/)
 
 - 基于 [Web Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers) 支持多线程并发编码 GIF
 - 时长、宽高、帧率和质量精细控制
@@ -45,7 +51,7 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili。
 - 适配爱奇艺
 - 适配微博
 - 适配 Twitter
-- 适配 Youtube
+- ~~适配 Youtube~~
 - 支持添加文字到 GIF 中
   - 初期只支持固定文字
   - 文字默认只有用户已安装的字体，后续可以考虑第三方字体
