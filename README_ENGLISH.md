@@ -1,6 +1,7 @@
-# [Ononoki](https://zh.moegirl.org/zh-hans/%E6%96%A7%E4%B9%83%E6%9C%A8%E4%BD%99%E6%8E%A5)
+# [Ononoki](http://bakemonogatari.wikia.com/wiki/Yotsugi_Ononoki)
 
 ![](./public/icons/192.jpg)
+
 GIF emoticon packer chrome extension, support for Bilibili.
 
 ## Feature preview
@@ -15,7 +16,7 @@ GIF emoticon packer chrome extension, support for Bilibili.
 - Preview GIF generated in real time installation
 
 ### Online installation (recommended)
-Chrome store: [Chrome 商店](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
+[Chrome store](https://chrome.google.com/webstore/detail/meme-maker/hlalndcfbinfampnholjnkcaimdgnfae)
 
 
 ### Offline installation
@@ -55,16 +56,25 @@ Contributors
         <br>
         <a href="https://github.com/devrsi0n">devrsi0n</a>
         <br>
-        <p>代码实现、创意</p>
-        <a href="https://weibo.com/p/1005052398438325">微博</a>
+        <p>Code, ideas</p>
+        <a href="https://weibo.com/p/1005052398438325">Weibo</a>
       </td>
       <td align="center" valign="top">
         <img width="150" height="150" src="https://tvax1.sinaimg.cn/crop.181.54.252.252.180/735bdcf4ly8fn1lcaq067j20go0oramv.jpg">
         <br>
         <a href="https://weibo.com/u/1935400180">一闪一闪海星星</a>
         <br>
-        <p>Logo、项目名、创意</p>
-        <a href="https://weibo.com/u/1935400180">微博</a>
+        <p>Logo, Project's name, Ideas</p>
+        <a href="https://weibo.com/u/1935400180">Weibo</a>
+        <br>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/33934346?s=400&v=4">
+        <br>
+        <a href="https://github.com/zjbennett">zjbennett</a>
+        <br>
+        <p>Docs</p>
+        <a href="https://github.com/zjbennett">GitHub</a>
         <br>
       </td>
      </tr>

@@ -1,5 +1,7 @@
 # [Ononoki](https://zh.moegirl.org/zh-hans/%E6%96%A7%E4%B9%83%E6%9C%A8%E4%BD%99%E6%8E%A5)
 
+[English README](./README_ENGLISH.md)
+
 ![](./public/icons/192.jpg)
 
 GIF 表情包生成器 chrome 扩展，支持 Bilibili。
@@ -71,6 +73,15 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili。
         <br>
         <p>Logo、项目名、创意</p>
         <a href="https://weibo.com/u/1935400180">微博</a>
+        <br>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/33934346?s=400&v=4">
+        <br>
+        <a href="https://github.com/zjbennett">zjbennett</a>
+        <br>
+        <p>文档</p>
+        <a href="https://github.com/zjbennett">GitHub</a>
         <br>
       </td>
      </tr>
