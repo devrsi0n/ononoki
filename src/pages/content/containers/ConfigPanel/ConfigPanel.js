@@ -169,7 +169,7 @@ class ConfigPanel extends Component {
                       className={classes.common}
                     />
                     <Slider
-                      label="录制质量"
+                      label="录制质量（从高到低）"
                       min={0}
                       max={10}
                       step={1}

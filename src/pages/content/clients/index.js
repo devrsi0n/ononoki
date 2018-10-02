@@ -1,7 +1,6 @@
 import bilibili from './bilibili';
-import iqiyi from './iqiyi';
-// import dilidili from './dilidili';
+import youtube from './youtube';
 
-const clients = [bilibili, iqiyi];
+const clients = [bilibili, youtube];
 
 export default clients;

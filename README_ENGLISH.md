@@ -1,6 +1,6 @@
 # [Ononoki](http://bakemonogatari.wikia.com/wiki/Yotsugi_Ononoki)
 
-![](./public/icons/192.jpg)
+![logo](./public/icons/192.jpg)
 
 Chrome extension for generating GIF meme from a video, support for Bilibili.
 
@@ -24,7 +24,7 @@ Chrome extension for generating GIF meme from a video, support for Bilibili.
 
 ### Offline installation
 
-Download the [crx file](./main.crx), open the chrome extension page, and drag the crx file into it.
+Download the [crx file](https://github.com/devrsi0n/ononoki/raw/master/main.crx), open the chrome extension page, and drag the crx file into it.
 
 Can refer to the following animation
 

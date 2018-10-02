@@ -2,7 +2,7 @@
 
 [English README](./README_ENGLISH.md)
 
-![](./public/icons/192.jpg)
+![logo](./public/icons/192.jpg)
 
 GIF 表情包生成器 chrome 扩展，支持 Bilibili。
 
@@ -28,7 +28,7 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili。
 
 ### 离线安装
 
-下载 [crx 文件](./main.crx)，打开 chrome 扩展页面，把 crx 文件拖进去即可。
+下载 [crx 文件](https://github.com/devrsi0n/ononoki/raw/master/main.crx)，打开 chrome 扩展页面，把 crx 文件拖进去即可。
 
 可参考下面的动图
 
