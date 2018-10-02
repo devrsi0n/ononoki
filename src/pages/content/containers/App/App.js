@@ -24,7 +24,12 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    this.props.video.addEventListener('loadeddata', this.setVideoInfo, false);
+    const { video } = this.props;
+    video.addEventListener('loadeddata', this.setVideoInfo, false);
+    // In case video already loaded
+    if (video.readyState === 4) {
+      this.setVideoInfo();
+    }
   }
 
   onConfirm = async () => {
@@ -72,8 +77,8 @@ export default class App extends Component {
     });
   };
 
-  onTimeUpdate = ({ min, sec }) => {
-    this.props.video.currentTime = min * 60 + sec;
+  onTimeUpdate = ({ min, sec, ms }) => {
+    this.props.video.currentTime = min * 60 + sec + ms / 1000;
   };
 
   setVideoInfo = () => {
