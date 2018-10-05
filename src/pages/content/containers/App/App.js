@@ -69,6 +69,12 @@ export default class App extends Component {
     }));
   };
 
+  onClosePanel = () => {
+    this.setState({
+      openConfigPanel: false,
+    });
+  };
+
   onClosePreviewer = () => {
     this.gif.abort();
     this.setState({
@@ -106,7 +112,13 @@ export default class App extends Component {
   }
 
   render() {
-    const { onClickBtn, onConfirm, onClosePreviewer, onTimeUpdate } = this;
+    const {
+      onClickBtn,
+      onConfirm,
+      onClosePreviewer,
+      onTimeUpdate,
+      onClosePanel,
+    } = this;
     const { openConfigPanel, openPreviewer, btnRef, image } = this.state;
     const { btnStyle, width, height } = this.props;
 
@@ -131,6 +143,7 @@ export default class App extends Component {
           onConfirm={onConfirm}
           anchorEl={btnRef}
           onTimeUpdate={onTimeUpdate}
+          onClose={onClosePanel}
         />
         <Button
           onClick={onClickBtn}

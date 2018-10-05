@@ -11,15 +11,21 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import Avatar from '@material-ui/core/Avatar';
 import IconSend from '@material-ui/icons/Send';
+import IconClear from '@material-ui/icons/Clear';
+import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import TextInput from '../../components/TextInput';
 import TimeSelect from '../../components/TimeSelect';
 import Slider from '../../components/Slider';
 import logo from './logo.jpg';
+import './index.scss';
 
 const styles = () => ({
   root: {
     zIndex: 200,
+  },
+  card: {
+    paddingBottom: '10px',
   },
   header: {
     paddingBottom: 0,
@@ -54,6 +60,7 @@ class ConfigPanel extends Component {
     endOptions: PropTypes.object.isRequired,
     onConfigChange: PropTypes.func.isRequired,
     onConfirm: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
     onTimeUpdate: PropTypes.func,
   };
 
@@ -103,6 +110,7 @@ class ConfigPanel extends Component {
       startOptions,
       endOptions,
       onConfirm,
+      onClose,
     } = this.props;
 
     const startTime = start.min * 60 + start.sec + start.ms / 1000;
@@ -118,12 +126,32 @@ class ConfigPanel extends Component {
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={500}>
-            <Card>
+            <Card raised className={classes.card}>
               <CardHeader
                 className={classes.header}
                 title="Ononoki"
                 titleTypographyProps={{ variant: 'title' }}
-                avatar={<Avatar aria-label="Logo" src={logo} />}
+                avatar={
+                  <Avatar
+                    classes={{
+                      root: 'avatar',
+                    }}
+                    aria-label="Logo"
+                    src={logo}
+                    onClick={() => {
+                      const win = window.open(
+                        'https://github.com/devrsi0n/ononoki',
+                        '_blank'
+                      );
+                      win.focus();
+                    }}
+                  />
+                }
+                action={
+                  <IconButton onClick={onClose}>
+                    <IconClear />
+                  </IconButton>
+                }
               />
               <CardContent>
                 <FormControl>
@@ -169,7 +197,7 @@ class ConfigPanel extends Component {
                       className={classes.common}
                     />
                     <Slider
-                      label="录制质量（从高到低）"
+                      label="录制质量(从高到低)"
                       min={0}
                       max={10}
                       step={1}
@@ -184,7 +212,7 @@ class ConfigPanel extends Component {
                 <Button
                   color="primary"
                   variant="contained"
-                  size="large"
+                  fullWidth
                   disabled={disableConfirmBtn}
                   onClick={onConfirm}
                 >

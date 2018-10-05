@@ -33,7 +33,6 @@ export default function bilibili(render) {
   }
 
   const anchor = document.createElement('div');
-  anchor.setAttribute('id', 'ononoki');
 
   const newRoot = document.querySelector(
     '.bilibili-player-video-control-bottom-right'

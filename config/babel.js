@@ -40,7 +40,7 @@ module.exports = function getBabelOptions(isProd) {
       [require.resolve('babel-preset-stage-2')],
     ].filter(Boolean),
     plugins: [
-      require.resolve('babel-plugin-styled-components'),
+      // require.resolve('babel-plugin-styled-components'),
       [
         require.resolve('react-hot-loader/babel'),
         {

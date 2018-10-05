@@ -5,7 +5,6 @@ export default function youtube(render) {
   }
 
   const anchor = document.createElement('div');
-  anchor.setAttribute('id', 'ononoki');
 
   const container = document.querySelector('.ytp-right-controls');
   if (container) {

@@ -20,11 +20,7 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili 和 Youtube。
 
 ![preview](./preview.gif)
 
-> [原始视频](https://www.bilibili.com/video/av2863022/)
-
-- 基于 [Web Workers](https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers) 支持多线程并发编码 GIF
-- 时长、宽高、帧率和质量精细控制
-- 实时预览生成的 GIF
+> [原始 MAD](https://www.bilibili.com/video/av2863022/)
 
 ## 安装
 
@@ -41,6 +37,15 @@ GIF 表情包生成器 chrome 扩展，支持 Bilibili 和 Youtube。
 ![install](./how_to_install_offline_crx.gif)
 
 > 较新的 Chrome 不能直接导入 crx，请参考 [开发者模式导入解压文件](https://jingyan.baidu.com/article/f71d6037c581c91ab641d120.html)
+
+## 开发
+
+```sh
+git clone git@github.com:devrsi0n/ononoki.git
+cd ononoki
+yarn
+yarn start
+```
 
 ## 计划表
 

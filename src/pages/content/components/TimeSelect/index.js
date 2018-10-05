@@ -10,6 +10,7 @@ import Select from '../Select';
 const styles = {
   label: {
     marginBottom: '5px',
+    color: '#212121',
   },
 
   second: {

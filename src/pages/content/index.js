@@ -7,6 +7,11 @@ import App from './containers/App';
 import reducers from './reducers';
 import clients from './clients';
 
+if (chrome && chrome.runtime && chrome.runtime.getManifest) {
+  const { version } = chrome.runtime.getManifest();
+  console.log(`Ononoki version: ${version}`);
+}
+
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
   reducers,
@@ -18,6 +23,8 @@ function render(
   btnStyle = {},
   video = document.querySelector('video')
 ) {
+  anchor.setAttribute('id', 'ononoki');
+
   ReactDOM.render(
     <Provider store={store}>
       <Common>
